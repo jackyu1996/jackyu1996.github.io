@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>In A Shell &middot; Here and There</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Here and There" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Here and There</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        Jack Yu
+        <br>
+        <span>on&nbsp;</span><time datetime="2016-11-27 09:29:45 &#43;0800 CST">November 27, 2016</time>
+</div>
+		<h1 class="post-title">In A Shell</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>This is a guide to shell utilities. Mainly based on The book <code>Linux Shell Scripting Cookbook</code>, here is what I took.</p>
+<ul>
+<li>
+<p><code>printf</code> in shell:
+C-style, <code>%-5s</code> means left alignment, 5 widths; <code>%-4.2f</code> means float, 2 rounding, 4 width.</p>
+</li>
+<li>
+<p><code>color</code> in shell:
+reset=0, black=30, red=31, green=32, yellow=33, blue=34, magenta=35, cyan=36, white=37. For background, plus 10 except reset.
+Use it like this <code>echo -e &quot;\e[1;31m This is red text \e[0m&quot;</code>, e flag means escape the double quote.</p>
+</li>
+<li>
+<p><code>variables</code> in shell:
+direct assignment, but referring with <code>$</code>, sometimes <code>${variable}</code>; <code>${#variable}</code> gives you length; use <code>[ ]</code> or <code>(( ))</code> if multiple variables trouble you.</p>
+<ul>
+<li><code>#</code> remove from beginning</li>
+<li><code>%</code> remove from end</li>
+<li><code>/</code> remove or replace</li>
+</ul>
+</li>
+</ul>
+<p>e.g. <code>${VAR%%PATTERN}</code> <code>${VAR/PATTERN/REPLACE}</code></p>
+<p>Guess what <code>$1</code> &amp; <code>$2</code> and more means. <code>$?</code> brings the last return value.</p>
+<ul>
+<li>
+<p><code>redirection &amp; pipe</code> in shell:
+use <code>&gt;</code>, for stdout 1, stderr 2, use <code>1&gt;</code>, <code>2&gt;</code> respectively, convert stderr to stdout can also be accomplished by <code>cmd 2&gt;&amp;1 output.txt</code> or <code>cmd &amp;&gt; output.txt</code>; of course, to get away with these alloying errors, throw them into the &ldquo;Black Hole&rdquo;, <code>cmd 2&gt; /dev/null</code>. <code>&gt;</code>, <code>&lt;</code>, <code>&gt;&gt;</code>, directions do not matter if you know what you are doing.
+<code>tee</code> writes stdin to file</p>
+</li>
+<li>
+<p><code>Arrays and Associative arrays</code> in shell:
+<code>array = (1 2 3)</code>, no comma, indexing is the same as squre bracket indexing, to retrieve all, <code>arr[*]</code> or <code>arr[@]</code>.
+<code>declare -A ass_array</code> and <code>ass_array=([index1]=val1 [index2]=val2)</code>, there you go. But you have to <code>${!ass_array[*]}</code> to get all items.</p>
+</li>
+<li>
+<p><code>date</code> in shell:
+<code>date +%s</code> Unix time, yeah! You can also offer a date for operation, other specification can be found in help, like <code>date --date &quot;Jan 20 2001&quot; +%A</code> gives you exactly the weekday. This is limitless.</p>
+</li>
+<li>
+<p><code>function</code> in shell:
+Declaration is quite C-style, however, passing args using <code>funName arg1 arg2</code>.
+<code>read -n 2 var</code> reads 2 vars you provide. Other arguments like <code>-s/-d/-P/-t</code> can also be useful and will be found in detail in help or manual.
+<code>for do done</code>, <code>if then fi</code>, appends <code>;</code> all the time.
+-eq/ne/lt/le/gt/ge/ -r/w/x/f/d/e/c/b/ -a/o</p>
+</li>
+<li>
+<p><code>find</code> in shell:
+<code>find . -regex &quot;.*\(\.py\|\.sh)$&quot;</code>, another cursed string problem, escape, escape, escape. <code>-print</code> is handy, <code>-type/-size</code> are useful, caution with <code>-delete</code>.</p>
+</li>
+<li>
+<p><code>xargs and more</code> in shell:
+<code>echo &quot;splitXsplitXsplitXsplit&quot; | xargs -d X -n 2</code>, amazing.
+<code>wd</code> and <code>tr</code> even more astonishing.
+<code>paste</code>, <code>cut</code>, <code>sort</code>, <code>mktemp</code>, <code>uniq</code>, <code>split</code>, <code>diff</code>, <code>comm</code> blah blah; <code>echo ${URL%.*}</code> or <code>#</code>, sometimes double, can actually save you.
+<code>tail</code>, <code>head</code>
+<code>cd -</code>, this is brilliant!</p>
+</li>
+</ul>
+<p>-<code>sed &amp; awk</code> in shell:
+If you are familiar with vim, you will definitely feel at home.</p>
+<h2 id="in-fact-what-can-really-help-is-the-help-or-man-it-self">In fact, what can really help is the help or man it self.</h2>
+<h2 id="do-try-the-tldr-or-cheat-shellcheck-helps-you-write">Do try the <code>tldr</code> or <code>cheat</code>, <code>shellcheck</code> helps you write.</h2>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/posts/freecodecamp-algorithms/" class="left arrow">&#8592;</a>
+		<a href="/posts/rlang/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2021-01-14 15:09:43.301517152 &#43;0800 CST m=&#43;0.068569737">2021</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Here and There</title>
+    <link>/</link>
+    <description>Recent content on Here and There</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Feb 2019 16:10:45 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Textbook of Translation Review</title>
+      <link>/posts/a-textbook-of-translation-review/</link>
+      <pubDate>Mon, 10 Dec 2018 14:13:04 +0800</pubDate>
+      
+      <guid>/posts/a-textbook-of-translation-review/</guid>
+      <description>Neologisms are no special phenomena unique to any certain or dominant languages. They may be defined as newly coined lexical units or existing lexical units that acquire a new sense. As @newmark_textbook_1988 stated, 300 words annually is far less than accurate, hundred and thousands are being created, introduced, and even reinvented.</description>
+    </item>
+    
+    <item>
+      <title>On Liberty Chapter 4 Review</title>
+      <link>/posts/on-liberty-ch4-review/</link>
+      <pubDate>Sun, 14 Oct 2018 11:12:03 +0800</pubDate>
+      
+      <guid>/posts/on-liberty-ch4-review/</guid>
+      <description>On Liberty Chapter 4 Summary In this chapter Mill proposed two opposite ideas regarding the authority society have on any individual, i.e, to those spoil their lives by mismanagement, we shall not punish him but to show him how he can avoid the evils his conduct bring upon him, however, to those who infringed the rules necessary to protect others, we can do nothing but to retaliate on him.</description>
+    </item>
+    
+    <item>
+      <title>Booklist</title>
+      <link>/posts/booklist/</link>
+      <pubDate>Sun, 18 Mar 2018 16:19:04 +0800</pubDate>
+      
+      <guid>/posts/booklist/</guid>
+      <description>A list of influential books I read during my collage time. Non-Fiction 人类简史 时间简史 历史研究 万历十五年 乡土中国 乌合之众 西方哲学简</description>
+    </item>
+    
+    <item>
+      <title>Ozymandias</title>
+      <link>/posts/ozymandias/</link>
+      <pubDate>Fri, 22 Sep 2017 20:47:02 +0800</pubDate>
+      
+      <guid>/posts/ozymandias/</guid>
+      <description>I met a traveller from an antique land Who said: Two vast and trunkless legs of stone Stand in the desert&amp;hellip; near them, on the sand, Half sunk, a shattered visage lies, whose frown, And wrinkled lip, and sneer of cold command,</description>
+    </item>
+    
+    <item>
+      <title>我喷</title>
+      <link>/posts/rant/</link>
+      <pubDate>Thu, 11 May 2017 22:48:10 +0800</pubDate>
+      
+      <guid>/posts/rant/</guid>
+      <description>Rants</description>
+    </item>
+    
+    <item>
+      <title>A Taste of R</title>
+      <link>/posts/rlang/</link>
+      <pubDate>Mon, 06 Feb 2017 20:29:13 +0800</pubDate>
+      
+      <guid>/posts/rlang/</guid>
+      <description>A Taste of R R is widely accepted as a powerful as well as easy-to-learn language in data analysis, though python has got its own numpy, pandas, sympy, matplotlib, scipy, and more handy modules, R can still serve as a sharp weapon to deal with data.</description>
+    </item>
+    
+    <item>
+      <title>In A Shell</title>
+      <link>/posts/shell/</link>
+      <pubDate>Sun, 27 Nov 2016 09:29:45 +0800</pubDate>
+      
+      <guid>/posts/shell/</guid>
+      <description>This is a guide to shell utilities. Mainly based on The book Linux Shell Scripting Cookbook, here is what I took.
+  printf in shell: C-style, %-5s means left alignment, 5 widths; %-4.2f means float, 2 rounding, 4 width.
+  color in shell: reset=0, black=30, red=31, green=32, yellow=33, blue=34, magenta=35, cyan=36, white=37.</description>
+    </item>
+    
+    <item>
+      <title>Freecodecamp 算法练习</title>
+      <link>/posts/freecodecamp-algorithms/</link>
+      <pubDate>Tue, 11 Oct 2016 22:46:57 +0800</pubDate>
+      
+      <guid>/posts/freecodecamp-algorithms/</guid>
+      <description>初级算法 Reverse a String 这个简单，字符串 immutable，先 split 成数组再 reverse，最后 join</description>
+    </item>
+    
+    <item>
+      <title>Show Me the Graph</title>
+      <link>/posts/graphviz/</link>
+      <pubDate>Thu, 29 Sep 2016 17:19:21 +0800</pubDate>
+      
+      <guid>/posts/graphviz/</guid>
+      <description>Talk is cheap, Show me the Graph.
+ I have always hated those guys who put hundreds and thousands of words on a single page of presentation. IT REALLY S**KS. Well, assume there is not a handy tool, I believe Graphviz can be really really helpful to those troubled by this problem.</description>
+    </item>
+    
+  </channel>
+</rss>

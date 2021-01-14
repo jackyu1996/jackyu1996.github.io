@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Show Me the Graph &middot; Here and There</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Here and There" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Here and There</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        Jack Yu
+        <br>
+        <span>on&nbsp;</span><time datetime="2016-09-29 17:19:21 &#43;0800 CST">September 29, 2016</time>
+</div>
+		<h1 class="post-title">Show Me the Graph</h1>
+<div class="post-line"></div>
+
+		
+
+		<blockquote>
+<p>Talk is cheap, Show me the Graph.</p>
+</blockquote>
+<p>I have always hated those guys who put hundreds and thousands of words on a single page of presentation. IT REALLY S**KS. Well, assume there is not a handy tool, I believe Graphviz can be really really helpful to those troubled by this problem.</p>
+<p>Here is what you need to know to draw a BEAUTIFUL graph. Documentation can be found <a href="http://www.graphviz.org/Documentation.php">here</a>.</p>
+<p>What I am trying to describe here is just a tip of the iceberg.</p>
+<p>It seems that there won&rsquo;t be Windows support in the near future. 2333333</p>
+<h2 id="a-sample-can-be-like-this">A sample can be like this:</h2>
+<pre><code class="language-dot" data-lang="dot">digraph G {
+  {
+    node [margin=0 fontcolor=blue fontsize=32 width=0.5 shape=circle style=filled]
+    b [fillcolor=yellow fixedsize=true label=&quot;a very long label&quot;]
+    d [fixedsize=shape label=&quot;an even longer label&quot;]
+  }
+  a -&gt; {c d}
+  b -&gt; {c d}
+}
+</code></pre><h1 id="the-dot-language">The Dot Language</h1>
+<p>Group by (), optional items enclosed by [], Like attrs etc. e.g <code>abc [fillcolor = red]</code>. Full list <a href="http://www.graphviz.org/content/attrs">here</a>
+Main keywords are <code>node, edge, graph, digraph, subgraph, strict</code>. Node is exactly what you assume. Edge is somehow <code>arrow</code> or something like that.</p>
+<h1 id="command-line-invocation">Command-line Invocation</h1>
+<blockquote>
+<p>dot [flags] [input files]</p>
+</blockquote>
+<p>By assign -T<!-- raw HTML omitted --> flags, you can output to all <a href="http://www.graphviz.org/content/output-formats">these</a> formats, bmp,png,jpg,pdf, even psd.</p>
+<p>Do use -o to specify a name for a output filename. Or use redirect.</p>
+<h1 id="attrs">Attrs</h1>
+<p>Most commonly used I believe is <code>arrowhead, arrowtail, arrowsize, bgcolor, color, comment, colorscheme, fillcolor, fontcolor, fontname, fontsize, label, height, rank, rankdir, rotate, scale, size, skew</code></p>
+<p>Use {} to enclose different sections</p>
+<h1 id="shapes">Shapes</h1>
+<p>Shape is also an attribute. <a href="http://www.graphviz.org/content/node-shapes">Complete list</a>
+box, polygon, ellipse, oval, circle ,egg, point, triangle, diamond, rectangle, square, star, folder, box3d, ……</p>
+<p>Here is an example:</p>
+<pre><code class="language-dot" data-lang="dot">digraph R {
+  rankdir=LR
+  node [style=rounded]
+  node1 [shape=box]
+  node2 [fillcolor=yellow, style=&quot;rounded,filled&quot;, shape=diamond]
+  node3 [shape=record, label=&quot;{ a | b | c }&quot;]
+
+  node1 -&gt; node2 -&gt; node3
+}
+</code></pre><h1 id="arrow-shapes">Arrow Shapes</h1>
+<p><a href="http://www.graphviz.org/content/arrow-shapes">Usage here</a>
+box, crow, curve, diamond, dot, icurve, inv, none, normal, tee,vee</p>
+<h1 id="the-best-part-color">The Best Part: Color</h1>
+<p>See <a href="http://www.graphviz.org/content/color-names">this</a> for the reference</p>
+<p>There is an official guide <a href="http://www.graphviz.org/pdf/dotguide.pdf">here</a>.</p>
+<p>And, of course, the best part. <code>UTF-8</code>!</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/posts/freecodecamp-algorithms/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2021-01-14 15:09:43.297254316 &#43;0800 CST m=&#43;0.064306881">2021</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Freecodecamp 算法练习 &middot; Here and There</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Here and There" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Here and There</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        Jack Yu
+        <br>
+        <span>on&nbsp;</span><time datetime="2016-10-11 22:46:57 &#43;0800 CST">October 11, 2016</time>
+</div>
+		<h1 class="post-title">Freecodecamp 算法练习</h1>
+<div class="post-line"></div>
+
+		
+
+		<h1 id="初级算法">初级算法</h1>
+<h4 id="reverse-a-string">Reverse a String</h4>
+<p>这个简单，字符串 immutable，先 split 成数组再 reverse，最后 join</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reverseString</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;&#39;</span>).<span style="color:#a6e22e">reverse</span>().<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+}
+</code></pre></div><h4 id="factorialize-a-number">Factorialize a Number</h4>
+<p>这个也是，使用 recurse</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">factorialize</span>(<span style="color:#a6e22e">num</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">num</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) { <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>; }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">factorialize</span>(<span style="color:#a6e22e">num</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+}
+</code></pre></div><h4 id="check-for-palindromes">Check for Palindromes</h4>
+<p>检测回文，即正反读都是一样的词，基础用法可以如1中检测是否正反相等，高级用法可使用递归</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">palindrome</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">toLowerCase</span>().<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/[^a-z|0-9]/g</span>, <span style="color:#e6db74">&#34;&#34;</span>);
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+  }
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">str</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!==</span> <span style="color:#a6e22e">str</span>[<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]){
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+  }
+  <span style="color:#66d9ef">else</span>{
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">palindrome</span>(<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>,<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>));
+  }
+}
+</code></pre></div><h4 id="find-the-longest-word-in-a-string">Find the Longest Word in a String</h4>
+<p>找出字符串中最长的词的长度，可使用遍历，也可以 reduce，高级用法又用递归</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">findLongestWord</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34; &#34;</span>);
+  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">length</span>;
+  }
+  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">str</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">str</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">length</span>){
+    <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">findLongestWord</span>(<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34; &#34;</span>));
+  }
+  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">str</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">str</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">length</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">findLongestWord</span>(<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>,<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span>).<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34; &#34;</span>));
+  }
+}
+</code></pre></div><h4 id="title-case-a-sentence">Title Case a Sentence</h4>
+<p>让句中每个单词首字母大写，可用 replace，charAt 调用，高级用法使用 ES6 中的箭头函数（匿名函数），replcae 函数第二参数接收的参数即是此匿名函数。如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">titleCase</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">toLowerCase</span>().<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/( |^)[a-z]/g</span>, (<span style="color:#a6e22e">L</span>) =&gt; (<span style="color:#a6e22e">L</span>).<span style="color:#a6e22e">toUpperCase</span>());
+}
+</code></pre></div><h4 id="return-largest-numbers-in-arrays">Return Largest Numbers in Arrays</h4>
+<p>输出二元数组下各数组中最大的数，可遍历两个数组比较，初始化一个变量存储；高级用法如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">largestOfFour</span>(<span style="color:#a6e22e">arr</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">map</span>(Function.<span style="color:#a6e22e">apply</span>.<span style="color:#a6e22e">bind</span>(Math.<span style="color:#a6e22e">max</span>, <span style="color:#66d9ef">null</span>));
+}
+</code></pre></div><h4 id="confirm-the-ending">Confirm the Ending</h4>
+<p>进阶的 endwith……，害怕。可用 substring 倒取最后一个</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">confirmEnding</span>(<span style="color:#a6e22e">str</span>, <span style="color:#a6e22e">target</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">substr</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">length</span>) <span style="color:#f92672">===</span> <span style="color:#a6e22e">target</span>;
+}
+</code></pre></div><h4 id="repeat-a-string-repeat-a-string">Repeat a string repeat a string</h4>
+<p>重复一个字符串多遍，可用 while(num &gt; 0)，设置计数；以下方法调用了 repeat，使用的 test ? true : false 为三元条件运算。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">repeatStringNumTimes</span>(<span style="color:#a6e22e">str</span>, <span style="color:#a6e22e">num</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">repeat</span>(<span style="color:#a6e22e">num</span>) <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>;
+}
+</code></pre></div><h4 id="truncate-a-string">Truncate a string</h4>
+<p>缩短文本用&hellip;代替；基本使用 slice 实现</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">truncateString</span>(<span style="color:#a6e22e">str</span>, <span style="color:#a6e22e">num</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">num</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>;
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">num</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">num</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;...&#39;</span>;
+  }
+}
+</code></pre></div><h4 id="chunky-monkey">Chunky Monkey</h4>
+<p>按照第二个参数划分第一个数组参数，以下为高级用法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">chunkArrayInGroups</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">size</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">newArr</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>) {
+    <span style="color:#a6e22e">newArr</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#a6e22e">size</span>));
+    <span style="color:#a6e22e">i</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">size</span>;
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">newArr</span>;
+}
+</code></pre></div><h4 id="slasher-flick">Slasher Flick</h4>
+<p>类似上一个，数组中只保留第二个参数之后的内容；直接用 slice 即可</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">slasher</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">howMany</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#a6e22e">howMany</span>);
+}
+</code></pre></div><h4 id="mutations">Mutations</h4>
+<p>检测第一个参数是否完全包含第二个参数，只需包含其元素；以下用法使用了 split，every，indexOf</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">mutation</span>(<span style="color:#a6e22e">arr</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">toLowerCase</span>()
+    .<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+    .<span style="color:#a6e22e">every</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">letter</span>) {
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">toLowerCase</span>()
+        .<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">letter</span>) <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    });
+}
+</code></pre></div><h4 id="falsy-bouncer">Falsy Bouncer</h4>
+<p>除掉假值，使用 filter</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">bouncer</span>(<span style="color:#a6e22e">arr</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">filter</span>(Boolean);
+}
+</code></pre></div><h4 id="seek-and-destroy">Seek and Destroy</h4>
+<p>类似上题，只返回不包含后几个参数的原数组</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">destroyer</span>(<span style="color:#a6e22e">arr</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">slice</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">arguments</span>);
+  <span style="color:#a6e22e">args</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">element</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">args</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">element</span>) <span style="color:#f92672">===</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+  });
+}
+</code></pre></div><h4 id="where-do-i-belong">Where do I belong</h4>
+<p>将第二个参数插入数组，排序然后返回索引</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getIndexToIns</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">num</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">curr</span>, <span style="color:#a6e22e">next</span>) =&gt; <span style="color:#a6e22e">curr</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">next</span>)
+    .<span style="color:#a6e22e">findIndex</span>((<span style="color:#a6e22e">currNum</span>)=&gt; <span style="color:#a6e22e">num</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">currNum</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">===</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">index</span>;
+}
+</code></pre></div><h4 id="caesars-cipher">Caesars Cipher</h4>
+<p>凯撒密码，把字符前后移动生成密文，以下用法使用了 fromCharCode，charCodeAt</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">rot13</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/[A-Z]/g</span>, (<span style="color:#a6e22e">L</span>) =&gt; String.<span style="color:#a6e22e">fromCharCode</span>(<span style="color:#ae81ff">65</span> <span style="color:#f92672">+</span> (<span style="color:#a6e22e">L</span>.<span style="color:#a6e22e">charCodeAt</span>(<span style="color:#ae81ff">0</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">65</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">13</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">26</span>));
+}
+</code></pre></div><h1 id="中级算法">中级算法</h1>
+<h4 id="sum-all-numbers-in-a-range">Sum All Numbers in a Range</h4>
+<p>返回数组参数内的所有整数和，下列用法用到了展开运算符</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sumAll</span>(<span style="color:#a6e22e">arr</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">min</span>(...<span style="color:#a6e22e">arr</span>); <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> Math.<span style="color:#a6e22e">max</span>(...<span style="color:#a6e22e">arr</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+        <span style="color:#a6e22e">sum</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">i</span>;
+    }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sum</span>;
+}
+</code></pre></div><h4 id="diff-two-arrays">Diff Two Arrays</h4>
+<p>返回两行中不公有的元素，以下函数调用了 filter，concat，includes</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">diffArray</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>
+      .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">el</span> =&gt; <span style="color:#f92672">!</span><span style="color:#a6e22e">arr2</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">el</span>))
+      .<span style="color:#a6e22e">concat</span>(
+        <span style="color:#a6e22e">arr2</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">el</span> =&gt; <span style="color:#f92672">!</span><span style="color:#a6e22e">arr1</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">el</span>))
+      )
+}
+</code></pre></div><h4 id="roman-numeral-converter">Roman Numeral Converter</h4>
+<p>对应阿拉伯数字对应罗马数字</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">convertToRoman</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">num</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">decimalValue</span> <span style="color:#f92672">=</span> [ <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">900</span>, <span style="color:#ae81ff">500</span>, <span style="color:#ae81ff">400</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">90</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span> ];
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">romanNumeral</span> <span style="color:#f92672">=</span> [ <span style="color:#e6db74">&#39;M&#39;</span>, <span style="color:#e6db74">&#39;CM&#39;</span>, <span style="color:#e6db74">&#39;D&#39;</span>, <span style="color:#e6db74">&#39;CD&#39;</span>, <span style="color:#e6db74">&#39;C&#39;</span>, <span style="color:#e6db74">&#39;XC&#39;</span>, <span style="color:#e6db74">&#39;L&#39;</span>, <span style="color:#e6db74">&#39;XL&#39;</span>, <span style="color:#e6db74">&#39;X&#39;</span>, <span style="color:#e6db74">&#39;IX&#39;</span>, <span style="color:#e6db74">&#39;V&#39;</span>, <span style="color:#e6db74">&#39;IV&#39;</span>, <span style="color:#e6db74">&#39;I&#39;</span> ];
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">romanized</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">decimalValue</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">decimalValue</span>[<span style="color:#a6e22e">index</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">num</span>) {
+      <span style="color:#a6e22e">romanized</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">romanNumeral</span>[<span style="color:#a6e22e">index</span>];
+      <span style="color:#a6e22e">num</span> <span style="color:#f92672">-=</span> <span style="color:#a6e22e">decimalValue</span>[<span style="color:#a6e22e">index</span>];
+    }
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">romanized</span>;
+}
+</code></pre></div><h4 id="wherefore-art-thou">Wherefore art thou</h4>
+<p>返回第二个参数作为值在第一个参数的数组，使用了 Object.key() 返回键</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">whatIsInAName</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">source</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">srcKeys</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">source</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">obj</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">srcKeys</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">key</span>) {
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">hasOwnProperty</span>(<span style="color:#a6e22e">key</span>) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">===</span> <span style="color:#a6e22e">source</span>[<span style="color:#a6e22e">key</span>];
+    }, <span style="color:#66d9ef">false</span>);
+  });
+}
+</code></pre></div><h4 id="search-and-replace">Search and Replace</h4>
+<p>查找替换……</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">myReplace</span>(<span style="color:#a6e22e">str</span>, <span style="color:#a6e22e">before</span>, <span style="color:#a6e22e">after</span>) {
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">applyCasing</span>(<span style="color:#a6e22e">source</span>, <span style="color:#a6e22e">target</span>) {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">targetArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;&#34;</span>);
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sourceArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">source</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;&#34;</span>);
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> Math.<span style="color:#a6e22e">min</span>(<span style="color:#a6e22e">targetArr</span>.<span style="color:#a6e22e">length</span>, <span style="color:#a6e22e">sourceArr</span>.<span style="color:#a6e22e">length</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+            <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">/[A-Z]/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">sourceArr</span>[<span style="color:#a6e22e">i</span>])) {
+                <span style="color:#a6e22e">targetArr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">targetArr</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">toUpperCase</span>();
+            }
+            <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">targetArr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">targetArr</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">toLowerCase</span>();
+        }
+        <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">targetArr</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34;&#34;</span>));
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#a6e22e">before</span>, <span style="color:#a6e22e">applyCasing</span>(<span style="color:#a6e22e">before</span>, <span style="color:#a6e22e">after</span>));
+}
+</code></pre></div><h4 id="pig-latin">Pig Latin</h4>
+<p>元音开始的单词词尾加 way，非元音开头的将元音以前的移到最后加ay，解法如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">translatePigLatin</span>(<span style="color:#a6e22e">str</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">strArr</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tmpChar</span>;
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isConsonant</span>(<span style="color:#66d9ef">char</span>) {
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#e6db74">/[aeiou]/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#66d9ef">char</span>);
+    }
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">isConsonant</span>(<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">charAt</span>(<span style="color:#ae81ff">0</span>)))
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;way&#34;</span>;
+    <span style="color:#66d9ef">else</span>
+        <span style="color:#a6e22e">strArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;&#34;</span>);
+    <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">isConsonant</span>(<span style="color:#a6e22e">strArr</span>[<span style="color:#ae81ff">0</span>])) {
+        <span style="color:#a6e22e">tmpChar</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">strArr</span>.<span style="color:#a6e22e">shift</span>();
+        <span style="color:#a6e22e">strArr</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">tmpChar</span>);
+    }
+ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">strArr</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34;&#34;</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;ay&#34;</span>;
+}
+</code></pre></div><h4 id="dna-pairing">DNA Pairing</h4>
+<p>DNA 配对，定义数组对应键查找值</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">pairElement</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">T</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#a6e22e">A</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;T&#39;</span>, <span style="color:#a6e22e">G</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;C&#39;</span>, <span style="color:#a6e22e">C</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;G&#39;</span>};
+  <span style="color:#a6e22e">strArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">strArr</span>.<span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+    <span style="color:#a6e22e">strArr</span>[<span style="color:#a6e22e">i</span>]<span style="color:#f92672">=</span>[<span style="color:#a6e22e">strArr</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">map</span>[<span style="color:#a6e22e">strArr</span>[<span style="color:#a6e22e">i</span>]]];
+  }
+ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">strArr</span>;
+}
+</code></pre></div><h4 id="missing-letters">Missing letters</h4>
+<p>指定一段连续的字母，输出中间漏掉的；调用 fromCharCode 和 charCodeAt，类似初级16题</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fearNotLetter</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">allChars</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">notChars</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RegExp(<span style="color:#e6db74">&#39;[^&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">str</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;]&#39;</span>,<span style="color:#e6db74">&#39;g&#39;</span>);
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">allChars</span>[<span style="color:#a6e22e">allChars</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">!==</span> <span style="color:#a6e22e">str</span>[<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] ; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>)
+    <span style="color:#a6e22e">allChars</span> <span style="color:#f92672">+=</span> String.<span style="color:#a6e22e">fromCharCode</span>(<span style="color:#a6e22e">str</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">charCodeAt</span>(<span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">i</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">allChars</span>.<span style="color:#a6e22e">match</span>(<span style="color:#a6e22e">notChars</span>) <span style="color:#f92672">?</span> <span style="color:#a6e22e">allChars</span>.<span style="color:#a6e22e">match</span>(<span style="color:#a6e22e">notChars</span>).<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#f92672">:</span> <span style="color:#66d9ef">undefined</span>;
+}
+</code></pre></div><h4 id="boo-who">Boo who</h4>
+<p>检验是否为布尔值，输出 true 或 false</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">booWho</span>(<span style="color:#a6e22e">bool</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">bool</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;boolean&#39;</span>;
+}
+</code></pre></div><h4 id="sorted-union">Sorted Union</h4>
+<p>合并并去重二重数组；以下为神之解法……</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">uniteUnique</span>() {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">concatArr</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">arguments</span>[<span style="color:#a6e22e">i</span>]){
+    <span style="color:#a6e22e">concatArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">concatArr</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">arguments</span>[<span style="color:#a6e22e">i</span>]); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>;
+  }
+  <span style="color:#a6e22e">uniqueArray</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">concatArr</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">item</span>, <span style="color:#a6e22e">pos</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">concatArr</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">item</span>) <span style="color:#f92672">==</span> <span style="color:#a6e22e">pos</span>;
+  });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">uniqueArray</span>;
+}
+</code></pre></div><h4 id="convert-html-entities">Convert HTML Entities</h4>
+<p>HTML 特殊符号对应及转义；使用 object 存储，然后对应查找值，也使用 map 调用了函数返回数组</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">convertHTML</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#a6e22e">htmlEntities</span><span style="color:#f92672">=</span>{
+    <span style="color:#e6db74">&#39;&amp;&#39;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;&amp;amp;&#39;</span>,
+    <span style="color:#e6db74">&#39;&lt;&#39;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;&amp;lt;&#39;</span>,
+    <span style="color:#e6db74">&#39;&gt;&#39;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;&amp;gt;&#39;</span>,
+    <span style="color:#e6db74">&#39;\&#34;&#39;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;&amp;quot;&#39;</span>,
+    <span style="color:#e6db74">&#39;\&#39;&#39;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;&amp;apos;&#34;</span>
+  };
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;&#39;</span>).<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">entity</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">htmlEntities</span>[<span style="color:#a6e22e">entity</span>] <span style="color:#f92672">||</span> <span style="color:#a6e22e">entity</span>;
+  }).<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+}
+</code></pre></div><h4 id="spinal-tap-case">Spinal Tap Case</h4>
+<p>断词改用连字符，用到了正则捕获组</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">spinalCase</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/([a-z])([A-Z])/g</span>, <span style="color:#e6db74">&#39;$1 $2&#39;</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">toLowerCase</span>().<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">/(?:_| )+/</span>).<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;-&#39;</span>);
+}
+</code></pre></div><h4 id="sum-all-odd-fibonacci-numbers">Sum All Odd Fibonacci Numbers</h4>
+<p>返回小于参数的所有奇数的 fibonacci 数的和，使用了 reduce 累加</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sumFibs</span>(<span style="color:#a6e22e">num</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arrFib</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>];
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span><span style="color:#a6e22e">num</span>;) {
+      <span style="color:#a6e22e">arrFib</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">i</span>);
+      <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arrFib</span>[<span style="color:#a6e22e">arrFib</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#a6e22e">arrFib</span>[<span style="color:#a6e22e">arrFib</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>];
+  }
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arrFib</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">prev</span>, <span style="color:#a6e22e">curr</span>) {
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">curr</span><span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">!==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">prev</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">curr</span>;
+      <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">prev</span>;
+    });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>;
+}
+</code></pre></div><h4 id="sum-all-primes">Sum All Primes</h4>
+<p>对小于参数的质数求和，嵌套函数并使用递归</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sumPrimes</span>(<span style="color:#a6e22e">num</span>) {
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isPrime</span>(<span style="color:#a6e22e">number</span>){
+      <span style="color:#66d9ef">for</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">number</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+          <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">number</span> <span style="color:#f92672">%</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">number</span><span style="color:#f92672">!=</span> <span style="color:#a6e22e">i</span>){
+             <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+          }
+       }
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+  }
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">num</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+  }
+  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isPrime</span>(<span style="color:#a6e22e">num</span>) <span style="color:#f92672">===</span> <span style="color:#66d9ef">false</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sumPrimes</span>(<span style="color:#a6e22e">num</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+  }
+  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isPrime</span>(<span style="color:#a6e22e">num</span>) <span style="color:#f92672">===</span> <span style="color:#66d9ef">true</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">sumPrimes</span>(<span style="color:#a6e22e">num</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+  }
+}
+</code></pre></div><h4 id="smallest-common-multiple">Smallest Common Multiple</h4>
+<p>取 array 间所有数的最小公倍数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">smallestCommons</span>(<span style="color:#a6e22e">arr</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">range</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">1</span>]); <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> Math.<span style="color:#a6e22e">min</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">1</span>]); <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+    <span style="color:#a6e22e">range</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">i</span>);
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">range</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">previousValue</span>, <span style="color:#a6e22e">currentValue</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">gcdPrevCurr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gcd</span>(<span style="color:#a6e22e">previousValue</span>, <span style="color:#a6e22e">currentValue</span>);
+    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">previousValue</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">currentValue</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">gcdPrevCurr</span>;
+    });
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">gcd</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">y</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>)
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span>;
+    <span style="color:#66d9ef">else</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">gcd</span>(<span style="color:#a6e22e">y</span>, <span style="color:#a6e22e">x</span><span style="color:#f92672">%</span><span style="color:#a6e22e">y</span>);
+    }
+}
+</code></pre></div><h4 id="finders-keepers">Finders Keepers</h4>
+<p>返回满足函数的数组中第一个为真的值，直接使用 filter</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">findElement</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">func</span>) {
+  <span style="color:#a6e22e">filterArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">func</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">filterArr</span>[<span style="color:#ae81ff">0</span>];
+}
+</code></pre></div><h4 id="drop-it">Drop it</h4>
+<p>返回满足函数的数组中元素；调用了 shift，这解法简直……</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">dropElements</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">func</span>) {
+  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">func</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>])) {
+    <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">shift</span>();
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>;
+}
+</code></pre></div><h4 id="steamroller">Steamroller</h4>
+<p>抽取多层数组中的元素返回；使用递归，厉害厉害</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">steamrollArray</span>(<span style="color:#a6e22e">arr</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">flat</span>, <span style="color:#a6e22e">toFlatten</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">flat</span>.<span style="color:#a6e22e">concat</span>(Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">toFlatten</span>) <span style="color:#f92672">?</span> <span style="color:#a6e22e">steamrollArray</span>(<span style="color:#a6e22e">toFlatten</span>) <span style="color:#f92672">:</span> <span style="color:#a6e22e">toFlatten</span>);
+  }, []);
+}
+</code></pre></div><h4 id="binary-agents">Binary Agents</h4>
+<p>解析二进制；调用了fromCharCode，parseInt，用以解析字符串</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">binaryAgent</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#66d9ef">return</span> String.<span style="color:#a6e22e">fromCharCode</span>(...<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34; &#34;</span>).<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#66d9ef">char</span>){ <span style="color:#66d9ef">return</span> parseInt(<span style="color:#66d9ef">char</span>, <span style="color:#ae81ff">2</span>); }));
+}
+</code></pre></div><h4 id="everything-be-true">Everything Be True</h4>
+<p>检验第二个参数是否存在于所传入的数组，解法厉害</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">truthCheck</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">pre</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">next</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">next</span>[<span style="color:#a6e22e">pre</span>]) {
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">acc</span>;
+    }
+    <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">acc</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">acc</span>;
+    }
+  },<span style="color:#66d9ef">true</span>);
+}
+</code></pre></div><h4 id="arguments-optional">Arguments Optional</h4>
+<p>传入参数求和，若参数只有一个则返回函数接收第二个数，解法厉害</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">addTogether</span>() {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">from</span>(<span style="color:#a6e22e">arguments</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">args</span>.<span style="color:#a6e22e">some</span>(<span style="color:#a6e22e">n</span> =&gt; <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;number&#39;</span>) <span style="color:#f92672">?</span> <span style="color:#66d9ef">undefined</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">args</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span>
+	<span style="color:#a6e22e">args</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">n</span>) =&gt; <span style="color:#a6e22e">acc</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">n</span>, <span style="color:#ae81ff">0</span>)<span style="color:#f92672">:</span> (<span style="color:#a6e22e">n</span>) =&gt; <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;number&#34;</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">args</span>[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">:</span> <span style="color:#66d9ef">undefined</span>;
+}
+</code></pre></div><h1 id="高级算法">高级算法</h1>
+<h4 id="validate-us-telephone-numbers">Validate US Telephone Numbers</h4>
+<p>验证美国电话号码，神长的正则……</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">telephoneCheck</span>(<span style="color:#a6e22e">str</span>) {
+   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">regex</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/</span>;
+   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">regex</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">str</span>);
+}
+</code></pre></div><h4 id="symmetric-difference">Symmetric Difference</h4>
+<p>对称差或者异或，即筛掉数组公有的元素，解法头疼</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sym</span>() {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">diff</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">A</span>, <span style="color:#a6e22e">B</span>) =&gt; <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Set</span>([...<span style="color:#a6e22e">A</span>].<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">n</span> =&gt; <span style="color:#f92672">!</span><span style="color:#a6e22e">B</span>.<span style="color:#a6e22e">has</span>(<span style="color:#a6e22e">n</span>)));
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [...<span style="color:#a6e22e">arguments</span>]
+    .<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">arr</span> =&gt; <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Set</span>(<span style="color:#a6e22e">arr</span>))
+    .<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">set</span>) =&gt; <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Set</span>([...<span style="color:#a6e22e">diff</span>(<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">set</span>), ...<span style="color:#a6e22e">diff</span>(<span style="color:#a6e22e">set</span>, <span style="color:#a6e22e">acc</span>)]));
+  <span style="color:#66d9ef">return</span> [...<span style="color:#a6e22e">result</span>];
+}
+</code></pre></div><h4 id="exact-change">Exact Change</h4>
+<p>找零钱的函数……神长</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">denom</span> <span style="color:#f92672">=</span> [
+  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ONE HUNDRED&#39;</span>, <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100.00</span>},
+  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;TWENTY&#39;</span>, <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20.00</span>},
+  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;TEN&#39;</span>, <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.00</span>},
+  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;FIVE&#39;</span>, <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5.00</span>},
+  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ONE&#39;</span>, <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1.00</span>},
+  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;QUARTER&#39;</span>, <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.25</span>},
+  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;DIME&#39;</span>, <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.10</span>},
+  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;NICKEL&#39;</span>, <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.05</span>},
+  { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;PENNY&#39;</span>, <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.01</span>}
+];
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">checkCashRegister</span>(<span style="color:#a6e22e">price</span>, <span style="color:#a6e22e">cash</span>, <span style="color:#a6e22e">cid</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">change</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cash</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">price</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">register</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cid</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">curr</span>) {
+    <span style="color:#a6e22e">acc</span>.<span style="color:#a6e22e">total</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">curr</span>[<span style="color:#ae81ff">1</span>];
+    <span style="color:#a6e22e">acc</span>[<span style="color:#a6e22e">curr</span>[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> <span style="color:#a6e22e">curr</span>[<span style="color:#ae81ff">1</span>];
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">acc</span>;
+  }, {<span style="color:#a6e22e">total</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>});
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">register</span>.<span style="color:#a6e22e">total</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">change</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;Closed&#39;</span>;
+  }
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">register</span>.<span style="color:#a6e22e">total</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">change</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;Insufficient Funds&#39;</span>;
+  }
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">change_arr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">denom</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">curr</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">register</span>[<span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">name</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">change</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">val</span>) {
+      <span style="color:#a6e22e">change</span> <span style="color:#f92672">-=</span> <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">val</span>;
+      <span style="color:#a6e22e">register</span>[<span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">name</span>] <span style="color:#f92672">-=</span> <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">val</span>;
+      <span style="color:#a6e22e">value</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">val</span>;
+      <span style="color:#a6e22e">change</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">round</span>(<span style="color:#a6e22e">change</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>;
+    }
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">value</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+        <span style="color:#a6e22e">acc</span>.<span style="color:#a6e22e">push</span>([ <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">value</span> ]);
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">acc</span>; <span style="color:#75715e">// Return the current Change Array
+</span><span style="color:#75715e"></span>  }, []);
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">change_arr</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">change</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Insufficient Funds&#34;</span>;
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">change_arr</span>;
+}
+</code></pre></div><h4 id="inventory-update">Inventory Update</h4>
+<p>更新存货，使用了 forEach，对数组调用参数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updateInventory</span>(<span style="color:#a6e22e">arr1</span>, <span style="color:#a6e22e">arr2</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flag</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#a6e22e">arr2</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">item</span>) {
+    <span style="color:#a6e22e">flag</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#a6e22e">arr1</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">list</span>) {
+      <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">item</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">===</span> <span style="color:#a6e22e">list</span>[<span style="color:#ae81ff">1</span>]) {
+        <span style="color:#a6e22e">list</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+=</span> <span style="color:#a6e22e">item</span>[<span style="color:#ae81ff">0</span>];
+        <span style="color:#a6e22e">flag</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+      }
+    });
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">flag</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>)
+      <span style="color:#a6e22e">arr1</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">item</span>);
+  });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr1</span>.<span style="color:#a6e22e">sort</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">b</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">?</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+  });
+}
+</code></pre></div><h4 id="no-repeats-please">No repeats please</h4>
+<p>返回排列组合不连续重复的数目，不是很懂</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">permAlone</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">regex</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/(.)\1+/g</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">permutations</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tmp</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">match</span>(<span style="color:#a6e22e">regex</span>) <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">match</span>(<span style="color:#a6e22e">regex</span>)[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">===</span> <span style="color:#a6e22e">str</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">swap</span>(<span style="color:#a6e22e">index1</span>, <span style="color:#a6e22e">index2</span>) {
+    <span style="color:#a6e22e">tmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">index1</span>];
+    <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">index1</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">index2</span>];
+    <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">index2</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">tmp</span>;
+  }
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">generate</span>(<span style="color:#66d9ef">int</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">int</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span>) {
+      <span style="color:#a6e22e">permutations</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;&#39;</span>));
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">int</span>; <span style="color:#f92672">++</span><span style="color:#a6e22e">i</span>) {
+        <span style="color:#a6e22e">generate</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+        <span style="color:#a6e22e">swap</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">i</span>, <span style="color:#66d9ef">int</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+      }
+    }
+  }
+  <span style="color:#a6e22e">generate</span>(<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>);
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">filtered</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">permutations</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">string</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">string</span>.<span style="color:#a6e22e">match</span>(<span style="color:#a6e22e">regex</span>);
+  });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">filtered</span>.<span style="color:#a6e22e">length</span>;
+}
+</code></pre></div><h4 id="friendly-date-ranges">Friendly Date Ranges</h4>
+<p>输入两个时间点，返回友好……的时间段</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">makeFriendlyDates</span>(<span style="color:#a6e22e">str</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">months</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;January&#39;</span>, <span style="color:#e6db74">&#39;February&#39;</span>, <span style="color:#e6db74">&#39;March&#39;</span>, <span style="color:#e6db74">&#39;April&#39;</span>, <span style="color:#e6db74">&#39;May&#39;</span>, <span style="color:#e6db74">&#39;June&#39;</span>, <span style="color:#e6db74">&#39;July&#39;</span>, <span style="color:#e6db74">&#39;August&#39;</span>, <span style="color:#e6db74">&#39;September&#39;</span>, <span style="color:#e6db74">&#39;October&#39;</span>, <span style="color:#e6db74">&#39;November&#39;</span>, <span style="color:#e6db74">&#39;December&#39;</span>];
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">convertDate</span>(<span style="color:#a6e22e">str</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dateStr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;-&#39;</span>);
+    <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">new</span> Date(Date.<span style="color:#a6e22e">UTC</span>(<span style="color:#a6e22e">dateStr</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">dateStr</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">dateStr</span>[<span style="color:#ae81ff">2</span>])));
+  }
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">val</span>) {
+    <span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">val</span>) {
+      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>
+      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">21</span><span style="color:#f92672">:</span>
+      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">31</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">val</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;st&#39;</span>;
+      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span>
+      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">22</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">val</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;nd&#39;</span>;
+      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span>
+      <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">23</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">val</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;rd&#39;</span>;
+      <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">val</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;th&#39;</span>;
+    }
+  }
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">monthDiff</span>(<span style="color:#a6e22e">date1</span>, <span style="color:#a6e22e">date2</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">month2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCFullYear</span>() <span style="color:#f92672">*</span> <span style="color:#ae81ff">12</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCMonth</span>();
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">month1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCFullYear</span>() <span style="color:#f92672">*</span> <span style="color:#ae81ff">12</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCMonth</span>();
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">month2</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">month1</span>;
+  }
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">dayDiff</span>(<span style="color:#a6e22e">date1</span>, <span style="color:#a6e22e">date2</span>) {
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCMonth</span>() <span style="color:#f92672">===</span> <span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCMonth</span>()){
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCDate</span>()<span style="color:#f92672">-</span><span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCDate</span>();
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+  }
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">months</span>[<span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">getUTCMonth</span>()];
+  }
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">displayDate</span>() {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getTime</span>() <span style="color:#f92672">-</span> <span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getTime</span>() <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+      <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date1</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCDate</span>()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;, &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCFullYear</span>()];
+    }
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCMonth</span>() <span style="color:#f92672">===</span> <span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCMonth</span>() <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCFullYear</span>() <span style="color:#f92672">===</span> <span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCFullYear</span>()) {
+      <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date1</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCDate</span>()), <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCDate</span>())];
+    }
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">monthDiff</span>(<span style="color:#a6e22e">date1</span>, <span style="color:#a6e22e">date2</span>) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">12</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCFullYear</span>() <span style="color:#f92672">!==</span> <span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCFullYear</span>() ) {
+      <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date1</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCDate</span>()), <span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date2</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCDate</span>())];
+    }
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">monthDiff</span>(<span style="color:#a6e22e">date1</span>, <span style="color:#a6e22e">date2</span>) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">12</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">dayDiff</span>(<span style="color:#a6e22e">date1</span>, <span style="color:#a6e22e">date2</span>)<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>) {
+      <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date1</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCDate</span>())<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;, &#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCFullYear</span>(), <span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date2</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCDate</span>())];
+    }
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">monthDiff</span>(<span style="color:#a6e22e">date1</span>, <span style="color:#a6e22e">date2</span>) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">12</span>) {
+      <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date1</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCDate</span>())<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;, &#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCFullYear</span>(), <span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date2</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCDate</span>())];
+    }
+    <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date1</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCDate</span>()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;, &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">date1</span>.<span style="color:#a6e22e">getUTCFullYear</span>(), <span style="color:#a6e22e">getMonth</span>(<span style="color:#a6e22e">date2</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dateEnding</span>(<span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCDate</span>()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;, &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">date2</span>.<span style="color:#a6e22e">getUTCFullYear</span>()];
+  }
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">date1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">convertDate</span>(<span style="color:#a6e22e">str</span>[<span style="color:#ae81ff">0</span>]);
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">date2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">convertDate</span>(<span style="color:#a6e22e">str</span>[<span style="color:#ae81ff">1</span>]);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">displayDate</span>();
+}
+</code></pre></div><h4 id="make-a-person">Make a Person</h4>
+<p>简单的类操作，善用 this</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">firstAndLast</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fullName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">firstAndLast</span>;
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getFirstName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fullName</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34; &#34;</span>)[<span style="color:#ae81ff">0</span>];
+  };
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getLastName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fullName</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34; &#34;</span>)[<span style="color:#ae81ff">1</span>];
+  };
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getFullName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fullName</span>;
+  };
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setFirstName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">name</span>) {
+    <span style="color:#a6e22e">fullName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fullName</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34; &#34;</span>)[<span style="color:#ae81ff">1</span>];
+  };
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setLastName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">name</span>) {
+    <span style="color:#a6e22e">fullName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fullName</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34; &#34;</span>)[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span>;
+  };
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setFullName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">name</span>) {
+    <span style="color:#a6e22e">fullName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+  };
+};
+</code></pre></div><h4 id="map-the-debris">Map the Debris</h4>
+<p>返回轨道周期，使用 forEach，参数中使用了 object</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">orbitalPeriod</span>(<span style="color:#a6e22e">arr</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">GM</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">398600.4418</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">earthRadius</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">6367.4447</span>;
+  <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">item</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tmp</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">round</span>(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> Math.<span style="color:#a6e22e">PI</span> <span style="color:#f92672">*</span> Math.<span style="color:#a6e22e">sqrt</span>(Math.<span style="color:#a6e22e">pow</span>(<span style="color:#a6e22e">earthRadius</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">avgAlt</span>, <span style="color:#ae81ff">3</span>) <span style="color:#f92672">/</span> <span style="color:#a6e22e">GM</span>));
+    <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">avgAlt</span>;
+    <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">orbitalPeriod</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tmp</span>;
+  });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>;
+}
+</code></pre></div><h4 id="pairwise">Pairwise</h4>
+<p>从第一个数组里面所有任意两个数和为第二个，返回索引和</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">pairwise</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">arg</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pairArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">slice</span>();
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pairArr</span>.<span style="color:#a6e22e">reduce</span>( <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>,<span style="color:#a6e22e">index</span>){
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">search</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arg</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>;
+      <span style="color:#66d9ef">if</span> ( <span style="color:#a6e22e">pairArr</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">search</span>) <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">pairArr</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">search</span>) <span style="color:#f92672">!=</span> <span style="color:#a6e22e">index</span> ){
+         <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">total</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">pairArr</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">search</span>);
+         <span style="color:#a6e22e">pairArr</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span>,<span style="color:#ae81ff">1</span>,<span style="color:#66d9ef">NaN</span>);
+         <span style="color:#a6e22e">pairArr</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">pairArr</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">search</span>),<span style="color:#ae81ff">1</span>,<span style="color:#66d9ef">NaN</span>);
+         <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">total</span>;
+      }
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span>;
+  },<span style="color:#ae81ff">0</span>);
+}
+</code></pre></div>
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/posts/graphviz/" class="left arrow">&#8592;</a>
+		<a href="/posts/shell/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2021-01-14 15:09:43.440332492 &#43;0800 CST m=&#43;0.207385022">2021</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

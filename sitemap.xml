@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2019-02-03T16:10:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-02-03T16:10:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/a-textbook-of-translation-review/</loc>
+    <lastmod>2018-12-10T14:13:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2018-12-10T14:13:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/on-liberty-ch4-review/</loc>
+    <lastmod>2018-10-14T11:12:03+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/booklist/</loc>
+    <lastmod>2018-03-18T16:19:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/ozymandias/</loc>
+    <lastmod>2017-09-22T20:47:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/rant/</loc>
+    <lastmod>2017-05-11T22:48:10+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/rlang/</loc>
+    <lastmod>2017-02-06T20:29:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/shell/</loc>
+    <lastmod>2016-11-27T09:29:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/freecodecamp-algorithms/</loc>
+    <lastmod>2016-10-11T22:46:57+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/graphviz/</loc>
+    <lastmod>2016-09-29T17:19:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+  </url>
+  
+</urlset>

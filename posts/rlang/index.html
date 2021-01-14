@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>A Taste of R &middot; Here and There</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Here and There" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Here and There</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        Jack Yu
+        <br>
+        <span>on&nbsp;</span><time datetime="2017-02-06 20:29:13 &#43;0800 CST">February 6, 2017</time>
+</div>
+		<h1 class="post-title">A Taste of R</h1>
+<div class="post-line"></div>
+
+		
+
+		<h1 id="a-taste-of-r">A Taste of R</h1>
+<p>R is widely accepted as a powerful as well as easy-to-learn language in data analysis, though python has got its own numpy, pandas, sympy, matplotlib, scipy, and more handy modules, R can still serve as a sharp weapon to deal with data.</p>
+<blockquote>
+<p>This passage is mainly a comprehension on <a href="https://www.rochester.edu/college/psc/thestarlab/help/rcourse/R-Course.pdf">P.Haschke&rsquo;s R-Course</a>. Some documents like official ones are included as well.</p>
+</blockquote>
+<h2 id="basics">Basics</h2>
+<blockquote>
+<p>extremely basic operations shall not be included in this text. All comments start with #.</p>
+</blockquote>
+<ul>
+<li>
+<p>To get help, type <code>?&lt;anything&gt;</code>or <code>help(&lt;anything&gt;)</code> , <code>?log()</code> equals but can&rsquo;t replace <code>help(log)</code>.</p>
+</li>
+<li>
+<p>To get functions can be used on anything, use <code>aporopos(&quot;&lt;anything&gt;&quot;)</code>. For example, <code>apropos(&quot;mean&quot;)</code>. Looks familiar, python got <code>dir()</code>.</p>
+</li>
+<li>
+<p>By <code>install.packages(&quot;&lt;packageName&gt;&quot;)</code> <strong>better be conducted in the console</strong>, you can get libraries you want from the CRAN mirror, to use anything inside your module or session, import the library using <code>library(&quot;&lt;packageName&gt;&quot;)</code>.</p>
+</li>
+</ul>
+<h3 id="introduction">Introduction</h3>
+<ul>
+<li>
+<p>Objects types are: <em>Vectors</em>(containing elements of the same type, one-dimensional), <em>Matrices &amp; Arrays</em>(two or more dimensional, same type), <em>Lists</em>(like vectors but different type allowed), <em>Data Frames</em>(like table mapping, two-dimensional), <em>Factors</em>, <em>Functions</em>(As you know)</p>
+</li>
+<li>
+<p>Modes types are: <em>integer</em>, <em>numeric</em>(real numbers), <em>complex</em>, <em>character</em>(AKA strings), <em>logical</em>(AKA Bool)</p>
+</li>
+<li>
+<p>Assignment: <code>&lt;variableName&gt; &lt;- &lt;toBeAssigned&gt;</code>, to get the type, use <code>is(variableName)</code>, to get and remove the variables, use <code>ls()</code> and <code>rm(&lt;variableToBeRemoved&gt;)</code>. <strong>I have to admit this part is weird, bash and lambda?</strong></p>
+</li>
+<li>
+<p>function <code>c()</code> is for concatenating elements making vectors.</p>
+</li>
+<li>
+<p>some new(to me) functions may be <code>sd()</code>(standard deviation, <code>var()</code>(variance), <code>cov()</code>(covariance), <code>cor()</code>(correlation coefficient), <code>unique()</code> and <code>which</code> is rather tricky. <code>prod()</code> is awesome. The most weird thing I believe is the use and access of variables like <code>&lt;var&gt;.&lt;v&gt;</code> and <code>&lt;var&gt;$&lt;v&gt;</code>.</p>
+</li>
+<li>
+<p><code>seq()</code> is used for creating defined vectors, <code>rep()</code> do repeat. Notation usage is similar to python but more powerful, simply <code>Vector[Vector &gt;= 1]</code> can save you lots of trouble. <code>summary()</code> shows basic information you need. <code>subset()</code> works perfect like <code>map()</code> function in python.</p>
+</li>
+<li>
+<p><code>print()</code>, <code>paste()</code>, <code>cat()</code> will deal with Stdout, <code>paste()</code> is for multiple modes, <code>cat()</code> doesn&rsquo;t create object in active memory</p>
+</li>
+</ul>
+<h3 id="matrices">Matrices</h3>
+<ul>
+<li>
+<p><code>source()</code> import your previous codes. <code>save()</code> saves your changes.</p>
+</li>
+<li>
+<p>Matrices have three main arguments: <em>data</em>(R object), <em>nrow</em>(number of rows), <em>ncol</em>(number of columns). Two more optional arguments are <em>byrow</em> and <em>dimnames</em>.</p>
+</li>
+<li>
+<p><code>rbind()</code> &amp; <code>cbind()</code> can be useful. <code>rownames()</code> &amp; <code>colnames()</code> cane be used to define and get names. <code>diag()</code>, you knew it already.</p>
+</li>
+<li>
+<p>Matrices use <code>[]</code> for notations, black magic like <code>Matrix[Matrix[ , 2] &gt; 4, ]</code> can be astonishing. <code>t()</code> for transpose, <code>solve()</code> for inverse, <code>det()</code> for determinant, <code>chol()</code> for cholesky decomposition, <code>eigen()</code> is perfect, <code>crossprod()</code> for cross product. <code>%*%</code> for matrix multiplication.</p>
+</li>
+</ul>
+<h3 id="data-frames">Data Frames</h3>
+<ul>
+<li>
+<p><code>data()</code> shows and load packages; First <code>library()</code>, then <code>data()</code>. <code>class()</code> like <code>is()</code>, <code>names()</code> is self-explanatory.</p>
+</li>
+<li>
+<p><code>read.csv()</code> for csv, <code>download.file()</code> for getting files. <code>DataFram$name</code> is for particular name extraction.</p>
+</li>
+<li>
+<p><code>str()</code> and <code>describe()</code> for summary.</p>
+</li>
+</ul>
+<h2 id="graphics">Graphics</h2>
+<ul>
+<li>ggplot2 shall be installed in advance, and to set more, do like this <code>plot1 &lt;- plot1 + geom_point(aes(x = FEhighway, y = FEcity))</code>, pretty ugly to me. :( .Other options can be referred at <a href="http://docs.ggplot2.org/current/">ggplot</a></li>
+</ul>
+<h2 id="programs">Programs</h2>
+<ul>
+<li>
+<p><code>if</code> &amp; <code>ifelse()</code> , other control flow functions just like C-style in one-line</p>
+</li>
+<li>
+<p>Defined functions are javascript-style, consider this</p>
+<pre><code>  ```r
+  MyFunction &lt;- function(Object) {
+      Object + Object
+  }
+  ```
+</code></pre>
+</li>
+</ul>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/posts/shell/" class="left arrow">&#8592;</a>
+		<a href="/posts/rant/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2021-01-14 15:09:43.2968238 &#43;0800 CST m=&#43;0.063876366">2021</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>
